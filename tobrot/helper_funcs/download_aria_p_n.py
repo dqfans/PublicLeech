@@ -198,7 +198,7 @@ async def call_apropriate_function(
     if message_to_send != "":
         mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n"
         message_to_send = mention_req_user + message_to_send
-        message_to_send = message_to_send + "\n\n" + "#uploads"
+        message_to_send = message_to_send + "\n" + "© @TorrentStore 😍"
     else:
         message_to_send = "<i>FAILED</i> to upload files. 😞😞"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
@@ -229,10 +229,10 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 except:
                     pass
                 #
-                msg = f"\nDownloading File: `{downloading_dir_name}`"
-                msg += f"\nSpeed: {file.download_speed_string()} 🔽 / {file.upload_speed_string()} 🔼"
-                msg += f"\nProgress: {file.progress_string()}"
-                msg += f"\nTotal Size: {file.total_length_string()}"
+                msg = f"\n📂 **Name**: `{downloading_dir_name}`"
+                msg += f"\n**Size**: {file.total_length_string()}"
+                msg += f"\n**Progress**: {file.progress_string()}"
+                msg += f"\n**Speed**: {file.download_speed_string()} / {file.upload_speed_string()}"
 
                 if is_file is None :
                    msg += f"\n<b>Connections:</b> {file.connections}"
@@ -240,7 +240,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                    msg += f"\n<b>Info:</b>[ P : {file.connections} || S : {file.num_seeders} ]"
 
                 # msg += f"\nStatus: {file.status}"
-                msg += f"\nETA: {file.eta_string()}"
+                msg += f"\n𝙴𝚃𝙰: {file.eta_string()}"
                 msg += f"\n<code>/cancel {gid}</code>"
                 # LOGGER.info(msg)
                 if msg != previous_message:
