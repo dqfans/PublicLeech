@@ -253,7 +253,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             await check_progress_for_dl(aria2, gid, event, previous_message)
         else:
-            await event.edit(f"File Downloaded Successfully: `{file.name}`")
+            await event.edit(f"**File Downloaded Successfully**: `{file.name}`")
             return True
     except Exception as e:
         LOGGER.info(str(e))
